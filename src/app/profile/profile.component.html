@@ -1,0 +1,44 @@
+
+<div class="scroll-bar">
+  <mat-card class="card"  *ngFor="let item of profile_details;l">
+      <img  height="150" [src]="item.profile_image" alt="No Image" (click)="get_profile_details(item)">
+      <mat-card-content class="content" (click)="get_profile_details(item)">
+        <p style="font-weight: 500;margin-bottom: 2px;font-size: 20px;">{{item.name}}</p>
+        <p style="font-size: 15px;line-height: normal;"> {{item.age}} Yrs, {{item.feet}}, {{item.language}}, {{item.caste}},
+        {{item.education}}, {{item.occupation}}, {{item.address}}.</p>
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="footer">
+      <button class="yes" mat-button (click)="open_dialog(item)">Yes</button>
+      <button class="no"mat-raised-button (click)="open_dialog(item)">No</button>
+    </div>
+    </mat-card-footer>
+      
+  </mat-card>
+  </div>
+
+
+
+
+  <!-- Popup -->
+<ng-template let-data #dialog_box>
+  <div style="height: fit-content;margin: 12px;">
+    <div style="text-align-last: end">
+      <mat-icon (click)=this.dialogservice.closeModal()>close</mat-icon>
+    </div>
+    <div class="reason">
+      <p style="text-align: center;" class="page-title">Are you sure,you want to remove this Profile ?
+      </p>
+    </div>
+    <div style="text-align-last: center; width: 100%; margin: 1px 1px 1px -14px;">
+
+      <button class="dialog-yes" mat-button (click)="yes(data)">
+        Yes
+      </button>
+
+      <button class="dialog-no" mat-raised-button (click)=this.dialogservice.closeModal()>
+        No
+      </button>
+    </div>
+  </div>
+</ng-template>

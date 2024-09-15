@@ -1,0 +1,75 @@
+.card{
+    width:200px;
+    min-width: 200px;
+    border:1px solid rgb(67,143,182);
+    background-color:white;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    color: black;
+    
+}
+
+
+.scroll-bar {
+    display: flex;column-gap: 30px;overflow: scroll;
+    overflow: auto; /* Allow scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scroll-bar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, etc. */
+  }
+  
+
+.example::-webkit-scrollbar {
+    display: none;
+  }
+
+img{
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.content {
+    padding: 10px;
+    flex-grow: 1; /* Ensures the content area takes up available space */
+}
+
+.footer {
+    display: flex;
+    column-gap: 10px;
+    padding: 15px 15px;
+}
+
+.yes{
+    background-color: rgb(255,152,0);
+    color:white !important;
+    font-size: 13px;
+}
+
+
+.no{
+    border:1px solid grey;
+    color: rgb(131,131,131) !important;
+    font-size: 13px;
+}
+
+
+.dialog-yes{
+    background-color: rgb(255,152,0);
+      color:white !important;
+      margin: 5px;
+  }
+  
+  .dialog-no{
+    background-color: rgb(201, 200, 200);
+      color:grey !important;
+      margin: 5px;
+  }
+  
+  mat-card-content{
+    cursor: pointer;
+  }

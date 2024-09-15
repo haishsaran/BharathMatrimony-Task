@@ -1,0 +1,33 @@
+<div style="padding: 5px;"><mat-icon (click)="goBack()">keyboard_backspace</mat-icon></div>
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators" *ngFor="let item of profile_details; let i = index">
+    <button
+    type="button"
+    *ngFor="let item of profile_details; let i = index"
+    [attr.data-bs-target]="'#carouselExampleIndicators'"
+    [attr.data-bs-slide-to]="i"
+    [class.active]="i === 0"
+    [attr.aria-label]="'Slide ' + (i + 1)">
+  </button>
+  </div>
+  <div class="carousel-inner">
+    <div *ngFor="let item of profile_details; let i = index" class="carousel-item" [class.active]="getactive_data(i,item)">
+      
+      <img  height="350" [src]="item.profile_image" class="d-block w-100" alt="No Image">
+      <div class="overlay-text1" style="padding: 10px;"><span style="padding: 10px;">{{item.refid}}</span></div>
+      <div class="overlay-text2"><span style="padding: 10px;">{{i + 1 }}/{{profile_details?.length}}</span></div>
+  <div style="margin:20px">
+      <h6 style="font-weight: 500;margin-bottom: 2px;">{{item.name}}</h6>
+        <p style="font-size: 15px;line-height: normal;"> {{item.age}} Yrs, {{item.feet}}, {{item.language}}, {{item.caste}},
+        {{item.education}}, {{item.occupation}}, {{item.address}}.</p>
+  </div>
+</div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

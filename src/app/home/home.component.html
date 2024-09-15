@@ -1,0 +1,14 @@
+
+   
+  <div class="full-container">
+  <div class="topbar">
+    <h6>My Matches</h6>
+    <mat-icon (click)="gesture()">more_vert</mat-icon>
+    </div>
+    <div style="display: flex;column-gap: 5px;padding: 10px 0px 10px 0px;">
+    <h6 style="font-weight: 500;">{{profile_details?.length}} Profiles pending with me</h6><span class="badge">{{profile_details?.length}} NEW</span>
+    </div>
+    <div>
+        <app-profile (profile_data)="getdata($event)"></app-profile>
+    </div>
+</div>

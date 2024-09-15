@@ -1,0 +1,51 @@
+<div class='layout1'>
+<div class="topbar"><mat-icon (click)="goBack()">keyboard_backspace</mat-icon><p>Daily Recommendations</p></div>
+    <div [hidden]="!profile_details?.length" class="tinder--cards" (pan)="handlePan($event)" (panend)="handlePanEnd($event)">
+  
+        <div #tinderCard class="tinder--card" (transitionend)="handleShift()" *ngFor="let card of profile_details; let i = index"
+            [ngStyle]="{ zIndex: profile_details?.length - i, transform: 'scale(' + (20 - i) / 20 + ') translateY(-' + 20 * i + 'px)' }">
+  
+            <img  height="150" [src]="card.profile_image">
+            <div class="sub-content">
+             <div style="color:rgb(135,154,225);"><mat-icon>verified_user</mat-icon>Verified</div>
+             <div style="color:rgb(203,182,226)"><mat-icon>workspace_premium</mat-icon>Premium NRI</div>
+            </div>
+            <div class="content">
+                <p style="font-weight: bold;margin: 0px 0px 5px 0px;font-size: 20px;">{{card.name}}</p>
+                <p style="font-size: 15px;line-height: normal;">{{card.age}} Yrs, {{card.feet}}, {{card.language}}, {{card.caste}},
+                {{card.education}}, {{card.occupation}}, {{card.address}}.</p>
+            </div>
+            
+            <div style=" padding: 10px 10px 10px 14px;display: flex;justify-content: space-between;">
+                <div class="align-items" (click)="userClickedButton($event, false)"><mat-icon style="color:grey;">star_border</mat-icon><p style="font-size: 12px;font-weight: 500;margin: 0;">Shortlist</p></div>
+                <div class="align-items" (click)="userClickedButton($event, true)"><h6 style="font-weight: bold;margin: 0;font-size: 16px;">Like her ?</h6><span class="cancel-border"><mat-icon class="cancel-icon">close</mat-icon></span>
+                    <span class="done-border"><mat-icon class="done-icon">done</mat-icon></span></div>
+            </div>
+        </div>
+  
+    </div>
+</div>
+  
+
+
+<ng-template let-data #dialog_box>
+    <div style="height: fit-content;margin: 12px;">
+      <div style="text-align-last: end">
+        <mat-icon (click)=this.dialogservice.closeModal()>close</mat-icon>
+      </div>
+      <div class="reason">
+        <p style="text-align: center;" class="page-title">Are you sure,you want to remove this Profile ?
+        </p>
+      </div>
+      <div style="text-align-last: center; width: 100%; margin: 1px 1px 1px -14px;">
+  
+        <button class="yes" mat-button (click)="yes(data)">
+          Yes
+        </button>
+  
+        <button class="no" mat-raised-button (click)=this.dialogservice.closeModal()>
+          No
+        </button>
+      </div>
+    </div>
+  </ng-template>

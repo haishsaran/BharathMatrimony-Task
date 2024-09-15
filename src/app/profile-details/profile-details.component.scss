@@ -1,0 +1,55 @@
+.carousel {
+    position: relative;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 10px;
+}
+
+img{
+    width: 100%;
+    background-size: cover;
+    cursor: pointer;
+        
+}
+
+.image{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+.overlay-text1 {
+    position: absolute;
+    top: 20px;  
+    color: white; 
+    font-size: 24px;
+    font-weight: bold;
+    
+  }
+
+  .overlay-text2 {
+    height: fit-content;
+    position: absolute;
+    right: 20px;
+    bottom: 150px;
+    color: white;
+    font-size: 16px;
+     border: 1px solid black; 
+    border-radius: 10px;
+    background-color: black;
+    
+}
+
+mat-icon{
+cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+    .carousel{
+        width: 100%;
+    }
+}
